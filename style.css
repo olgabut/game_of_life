@@ -44,6 +44,26 @@ h1 {
   border-radius: 4px;
 }
 
+.controls .speed input {
+  width: 120px;
+  padding: 0;
+  border: none;
+  accent-color: #2ecc40;
+}
+
+.speed output {
+  min-width: 64px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.controls .predict input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #1e88e5;
+}
+
 .controls input:disabled {
   background: #e8e8e8;
   color: #888;
@@ -66,7 +86,7 @@ h1 {
   background: #e53935;
 }
 
-.iterations {
+.generation {
   margin: 0 0 12px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
@@ -96,4 +116,43 @@ h1 {
 
 .cell.alive {
   background: #2ecc40;
+}
+
+.board {
+  position: relative;
+}
+
+/* Same grid as the matrix (sizes are set together in script.js), laid exactly
+   over it. Transparent border and gaps keep each cell over its main cell. */
+.prediction {
+  position: absolute;
+  inset: 0;
+  display: none;
+  border: 1px solid transparent;
+  pointer-events: none;
+}
+
+.prediction.visible {
+  display: grid;
+}
+
+.prediction:empty {
+  border: none;
+}
+
+/* Each overlay cell covers its main cell but stays transparent, so the main
+   cell shows around a solid half-size square drawn in the middle of it. */
+.prediction-cell {
+  position: relative;
+}
+
+.prediction-cell::before {
+  content: '';
+  position: absolute;
+  inset: 25%;
+  background: #e53935;
+}
+
+.prediction-cell.alive::before {
+  background: #1e88e5;
 }

@@ -18,12 +18,24 @@
       Height
       <input type="number" id="height" min="0" max="100" value="10">
     </label>
+    <label class="speed">
+      Speed
+      <input type="range" id="speed" min="0" max="5" step="0.5" value="5">
+      <output id="speed-value" for="speed"></output>
+    </label>
+    <label class="predict">
+      <input type="checkbox" id="predict">
+      Predict
+    </label>
     <button type="button" id="toggle" class="toggle">Start</button>
   </div>
 
-  <p class="iterations">Iteration: <span id="iterations">0</span></p>
+  <p class="generation">Generation: <span id="generation">0</span></p>
 
-  <div id="matrix" class="matrix"></div>
+  <div class="board">
+    <div id="matrix" class="matrix"></div>
+    <div id="prediction" class="prediction" aria-hidden="true"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
